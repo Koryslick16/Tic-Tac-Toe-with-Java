@@ -88,12 +88,14 @@ public class Main {
 
            tictacGame.inputValue(tictacBoard, position2, "Player2");
            tictacGame.ticBoard(tictacBoard);
-          Winner = tictacGame.checkWinner();
+
+           Winner = tictacGame.checkWinner();
           if(Winner.length() > 0) {
-              TicTacToe.ticBoard(tictacBoard);
+              tictacGame.ticBoard(tictacBoard);
               System.out.println(Winner);
               break;
           }
+
            System.out.println(Winner);
        }
 
