@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -7,6 +8,8 @@ import java.util.Scanner;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
+        ArrayList<Integer> playerpos = new ArrayList<Integer>();
+        ArrayList<Integer> player2pos = new ArrayList<Integer>();
         Scanner input = new Scanner(System.in);
         //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
         // to see how IntelliJ IDEA suggests fixing it.
@@ -61,16 +64,37 @@ public class Main {
         };
 
 
-        tictacGame.ticBoard(tictacBoard);
+        TicTacToe.ticBoard(tictacBoard);
        while(true){
            System.out.println("Enter the position you wish to play in (1-9): ");
            int position = input.nextInt();
-           tictacGame.inputValue(tictacBoard, position, "Player");
-
+//           int position2;
+           while(playerpos.contains(position) || player2pos.contains(playerpos)){
+               System.out.println("Someone already played there");
+               position = input.nextInt();
+           }
            Random random = new Random();
-           int position2 = random.nextInt(9);
+           int position2 = random.nextInt(9) + 1;
+           while(playerpos.contains(position2) || player2pos.contains(player2pos)){
+               System.out.println("Someone already played there");
+               position2 = random.nextInt(9) + 1;
+           }
+           tictacGame.inputValue(tictacBoard, position, "Player");
+           String Winner = tictacGame.checkWinner();
+           if(Winner.length() > 0) {
+               System.out.println(Winner);
+               break;
+           }
+
            tictacGame.inputValue(tictacBoard, position2, "Player2");
            tictacGame.ticBoard(tictacBoard);
+          Winner = tictacGame.checkWinner();
+          if(Winner.length() > 0) {
+              TicTacToe.ticBoard(tictacBoard);
+              System.out.println(Winner);
+              break;
+          }
+           System.out.println(Winner);
        }
 
     }
