@@ -9,7 +9,6 @@ public class TicTacToe {
     static ArrayList<Integer> playerpos = new ArrayList<Integer>();
     static ArrayList<Integer> player2pos = new ArrayList<Integer>();
 
-
      public static void ticBoard (char[][] tictacBoard){
 
          for(char[] row: tictacBoard){
@@ -76,7 +75,8 @@ public class TicTacToe {
          }
      }
 
-     public static String checkWinner(){
+     public static String checkWinner(char [][] board){
+//         TicTacToe.ticBoard(board);
        List winRow = Arrays.asList(1,2,3);
        List winRow2 = Arrays.asList(4,5,6);
        List winRow3 = Arrays.asList(7,8,9);
@@ -98,10 +98,13 @@ public class TicTacToe {
 
          for (List wins : winner){
              if(playerpos.containsAll(wins)){
+//                 TicTacToe.ticBoard(board);
                  return "Congratulations! You Won.";
              } else if (player2pos.containsAll(wins)) {
+//                 TicTacToe.ticBoard(board);
                  return "Computer Wins! Better Luck Next Time";
              } else if (playerpos.size() + player2pos.size() == 9) {
+//                 TicTacToe.ticBoard(board);
                  return "It's a Tie!";
              }
          }
