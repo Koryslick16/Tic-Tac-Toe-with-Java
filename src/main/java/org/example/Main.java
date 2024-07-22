@@ -56,14 +56,22 @@ public class Main {
         TicTacToe tictacGame = new TicTacToe();
 
         char [][] tictacBoard = {
-                {' ', ' ', '|', ' ', ' ', '|', ' ', ' '},
-                {'-', '-', '+', '-', '-', '+', '-', '-'},
-                {' ', ' ', '|', ' ', ' ', '|', ' ', ' '},
-                {'-', '-', '+', '-', '-', '+', '-', '-'},
-                {' ', ' ', '|', ' ', ' ', '|', ' ', ' '}
+                {' ', ' ', '|', ' ', '|', ' ', ' '},
+                {'-', '-', '+', '-', '+', '-', '-'},
+                {' ', ' ', '|', ' ', '|', ' ', ' '},
+                {'-', '-', '+', '-', '+', '-', '-'},
+                {' ', ' ', '|', ' ', '|', ' ', ' '}
         };
 
 
+      char symbol =  TicTacToe.checkSymbol();
+        char symbol2;
+
+        if (symbol == 'X') {
+            symbol2 = 'O';
+        }else {
+            symbol2 = 'X';
+        }
         TicTacToe.ticBoard(tictacBoard);
        while(true){
            System.out.println("Enter the position you wish to play in (1-9): ");
@@ -75,18 +83,18 @@ public class Main {
            }
            Random random = new Random();
            int position2 = random.nextInt(9) + 1;
-           while(playerpos.contains(position2) || player2pos.contains(player2pos)){
+           while(player2pos.contains(position2) || playerpos.contains(player2pos)){
                System.out.println("Someone already played there");
                position2 = random.nextInt(9) + 1;
            }
-           tictacGame.inputValue(tictacBoard, position, "Player");
+           tictacGame.inputValue(tictacBoard, position, symbol,"Player");
            String Winner = tictacGame.checkWinner();
            if(Winner.length() > 0) {
                System.out.println(Winner);
                break;
            }
 
-           tictacGame.inputValue(tictacBoard, position2, "Player2");
+           tictacGame.inputValue(tictacBoard, position2, symbol2,"Player2");
            tictacGame.ticBoard(tictacBoard);
 
            Winner = tictacGame.checkWinner();

@@ -3,6 +3,7 @@ package org.example;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 public class TicTacToe {
     static ArrayList<Integer> playerpos = new ArrayList<Integer>();
@@ -20,47 +21,55 @@ public class TicTacToe {
 
      }
 
+     public static char checkSymbol (){
+         Scanner input = new Scanner(System.in);
+         System.out.println("Input your character (X or O)");
+        char symbol = input.next().charAt(0);
+//         symbol = (char) System.in.read();
+         return symbol;
+     }
 
-     public static void inputValue(char[][] ticBoard, int position, String player){
 
-         char symbol = ' ';
+     public static void inputValue(char[][] ticBoard, int position, char symbol, String player){
+
+         char play = ' ';
 
          if(player.equals("Player")){
-              symbol = 'X';
+             play = symbol;
               playerpos.add(position);
          }
          else if (player.equals("Player2")){
-              symbol = 'O';
+             play = symbol;
               player2pos.add(position);
          }
 
          switch (position){
              case 1:
-                 ticBoard[0][1] = symbol;
+                 ticBoard[0][1] = play;
                  break;
              case 2:
-                 ticBoard[0][4] = symbol;
+                 ticBoard[0][3] = play;
                  break;
              case 3:
-                 ticBoard[0][6] = symbol;
+                 ticBoard[0][5] = play;
                  break;
              case 4:
-                 ticBoard[2][1] = symbol;
+                 ticBoard[2][1] = play;
                  break;
              case 5:
-                 ticBoard[2][4] = symbol;
+                 ticBoard[2][3] = play;
                  break;
              case 6:
-                 ticBoard[2][6] = symbol;
+                 ticBoard[2][5] = play;
                  break;
              case 7:
-                 ticBoard[4][1] = symbol;
+                 ticBoard[4][1] = play;
                  break;
              case 8:
-                 ticBoard[4][4] = symbol;
+                 ticBoard[4][3] = play;
                  break;
              case 9:
-                 ticBoard[4][6] = symbol;
+                 ticBoard[4][5] = play;
                  break;
              default:
                  break;
