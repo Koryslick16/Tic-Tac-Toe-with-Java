@@ -30,7 +30,6 @@ public class Main {
       }
 
       TicTacToe.ticBoard(tictacBoard);
-      int postion;
        while(true){
            System.out.println("Enter the position you wish to play in (1-9): ");
            int position = input.nextInt();
