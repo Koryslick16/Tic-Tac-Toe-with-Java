@@ -30,9 +30,14 @@ public class Main {
       }
 
       TicTacToe.ticBoard(tictacBoard);
+      int postion;
        while(true){
            System.out.println("Enter the position you wish to play in (1-9): ");
            int position = input.nextInt();
+           if (position > 9){
+               System.out.println("The Position you inputed is out of bounds. Please input a new position: ");
+               position = input.nextInt();
+           }
 
            if (playerpos.contains(position) || player2pos.contains(position)){
                System.out.println("Someone already played there");
