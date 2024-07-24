@@ -17,16 +17,27 @@ public class Main {
                 {'-', '-', '+', '-', '+', '-', '-'},
                 {' ', ' ', '|', ' ', '|', ' ', ' '},
                 {'-', '-', '+', '-', '+', '-', '-'},
-                {' ', ' ', '|', ' ', '|', ' ', ' '}
+                {' ', ' ', '|',  ' ', '|', ' ', ' '}
         };
 
+        System.out.println("Input your character (X or O):");
       char symbol =  TicTacToe.checkSymbol();
-      char symbol2;
+      char symbol2 = ' ';
 
-      if (symbol == 'X') {
+      if (symbol == 'X' || symbol == 'x') {
           symbol2 = 'O';
-      }else {
+      }else if (symbol == '0' || symbol == 'o'){
           symbol2 = 'X';
+      }
+      else{
+          System.out.println("Invalid Character. Please input another character: ");
+          symbol = TicTacToe.checkSymbol();
+          if (symbol == 'X' || symbol == 'x') {
+              symbol2 = '0';
+          } else if (symbol == 'O' || symbol == 'o') {
+              symbol2 = 'X';
+          }
+
       }
 
       TicTacToe.ticBoard(tictacBoard);
@@ -34,7 +45,8 @@ public class Main {
            System.out.println("Enter the position you wish to play in (1-9): ");
            int position = input.nextInt();
            if (position > 9){
-               System.out.println("The Position you inputed is out of bounds. Please input a new position: ");
+               System.out.println("The Position you inputed is out of bounds.");
+               System.out.println("Please input a new position: ");
                position = input.nextInt();
            }
 
@@ -62,12 +74,13 @@ public class Main {
                break;
            }
 
+//           if ()
+
            TicTacToe.inputValue(tictacBoard, position2, symbol2,"Player2");
            TicTacToe.ticBoard(tictacBoard);
 
            Winner = TicTacToe.checkWinner(tictacBoard);
            if(!Winner.isEmpty()) {
-              TicTacToe.ticBoard(tictacBoard);
               System.out.println(Winner);
               break;
           }

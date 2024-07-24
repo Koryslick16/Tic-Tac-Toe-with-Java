@@ -22,7 +22,7 @@ public class TicTacToe {
 
      public static char checkSymbol (){
          Scanner input = new Scanner(System.in);
-         System.out.println("Input your character (X or O)");
+//         System.out.println("Input your character (X or O)");
         char symbol = input.next().charAt(0);
 //         symbol = (char) System.in.read();
          return symbol;
@@ -76,7 +76,6 @@ public class TicTacToe {
      }
 
      public static String checkWinner(char [][] board){
-//         TicTacToe.ticBoard(board);
        List winRow = Arrays.asList(1,2,3);
        List winRow2 = Arrays.asList(4,5,6);
        List winRow3 = Arrays.asList(7,8,9);
@@ -86,7 +85,8 @@ public class TicTacToe {
        List winCross1 = Arrays.asList(1,5,9);
        List winCross2 = Arrays.asList(3,5,7);
 
-       List<List> winner = new ArrayList<List>();
+
+       List<List> winner = new ArrayList();
          winner.add(winRow);
          winner.add(winRow2);
          winner.add(winRow3);
@@ -98,13 +98,10 @@ public class TicTacToe {
 
          for (List wins : winner){
              if(playerpos.containsAll(wins)){
-//                 TicTacToe.ticBoard(board);
                  return "Congratulations! You Won.";
              } else if (player2pos.containsAll(wins)) {
-//                 TicTacToe.ticBoard(board);
                  return "Computer Wins! Better Luck Next Time";
              } else if (playerpos.size() + player2pos.size() == 9) {
-//                 TicTacToe.ticBoard(board);
                  return "It's a Tie!";
              }
          }
