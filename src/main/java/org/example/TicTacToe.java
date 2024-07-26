@@ -101,7 +101,7 @@ public class TicTacToe {
                  return "Congratulations! You Won.";
              } else if (player2pos.containsAll(wins)) {
                  return "Computer Wins! Better Luck Next Time";
-             } else if (playerpos.size() + player2pos.size() == 9) {
+             } else if (playerpos.size() + player2pos.size() == 8) {
                  return "It's a Tie!";
              }
          }
