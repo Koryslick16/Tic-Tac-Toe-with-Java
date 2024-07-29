@@ -63,11 +63,11 @@ public class Main {
 
            Random random = new Random();
            int position2 = random.nextInt(9) + 1;
-           if (playerpos.size() > 5){
-               TicTacToe.ticBoard(tictacBoard);
-               System.out.println(Winner);
-               break;
-           }
+//           if (playerpos.size() > 5){
+//               TicTacToe.ticBoard(tictacBoard);
+//               System.out.println(Winner);
+//               break;
+//           }
 
            while(player2pos.contains(position2) || playerpos.contains(position2)){
                position2 = random.nextInt(9) + 1;
