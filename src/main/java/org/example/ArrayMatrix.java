@@ -19,9 +19,6 @@ public class ArrayMatrix {
             {11, 7, 5}
     };
 
-//    public void addMatrix(int[][] firstArr, int[][]secondArr) {
-
-    //    }
     public void addMatrix(int[][] firstArr, int[][] secondArr) {
         int[][] newArray = new int[3][3];
         for (int i = 0; i < newArray.length; i++) {

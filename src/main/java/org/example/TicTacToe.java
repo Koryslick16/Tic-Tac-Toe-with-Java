@@ -22,9 +22,7 @@ public class TicTacToe {
 
      public static char checkSymbol (){
          Scanner input = new Scanner(System.in);
-//         System.out.println("Input your character (X or O)");
         char symbol = input.next().charAt(0);
-//         symbol = (char) System.in.read();
          return symbol;
      }
 

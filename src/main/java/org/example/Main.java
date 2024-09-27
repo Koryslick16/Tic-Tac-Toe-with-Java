@@ -26,15 +26,15 @@ public class Main {
 
       if (symbol == 'X' || symbol == 'x') {
           symbol2 = 'O';
-      }else if (symbol == '0' || symbol == 'o'){
+      }else if (symbol == 'O' || symbol == 'o'){
           symbol2 = 'X';
       }
       while(symbol != 'X' && symbol != 'O' && symbol != 'x' && symbol != 'o' ){
           System.out.println("Invalid Character. Please input another character: ");
           symbol = TicTacToe.checkSymbol();
           if (symbol == 'X' || symbol == 'x') {
-              symbol2 = '0';
-          } else if (symbol == 'O' || symbol == 'o') {
+              symbol2 = 'O';
+          }else if (symbol == 'O' || symbol == 'o') {
               symbol2 = 'X';
           }
       }
